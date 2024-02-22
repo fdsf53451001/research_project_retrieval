@@ -1,0 +1,4 @@
+chroma_project/*
+data/*
+
+*.pyc
