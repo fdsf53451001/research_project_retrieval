@@ -2,7 +2,7 @@ import json
 import tqdm
 import chromadb
 from utils.cal_embedding_bge_zh import calculate_docs_embedding_zh
-from load_source_excel import get_proj_df
+from utils.load_source_excel import get_proj_df
 
 client = chromadb.PersistentClient(path="chroma_project")
 collection = client.get_or_create_collection("chroma_project")

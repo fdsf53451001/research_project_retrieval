@@ -19,6 +19,7 @@ with pd.ExcelWriter(output_excel) as writer:
         for i in range(RECOMMAND_AMOUNT):
             df['推薦委員'+str(i+1)] = ''
             df['相關計畫'+str(i+1)] = ''
+            df['相關分數'+str(i+1)] = ''
             df['相關計畫通過'+str(i+1)] = ''
 
         for i in tqdm.tqdm(range(len(df)),desc=tab):
@@ -31,6 +32,7 @@ with pd.ExcelWriter(output_excel) as writer:
             for j, (doc, score) in enumerate(documents):
                 df.loc[df.index[i],'推薦委員'+str(j+1)] = doc.metadata['manager']
                 df.loc[df.index[i],'相關計畫'+str(j+1)] = doc.metadata['project_name']
+                df.loc[df.index[i],'相關分數'+str(j+1)] = score
                 df.loc[df.index[i],'相關計畫通過'+str(j+1)] = doc.metadata['if_pass']
     
         df.to_excel(writer, sheet_name=tab, index=False)

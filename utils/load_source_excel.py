@@ -13,8 +13,8 @@ def get_proj_df() -> List[pd.DataFrame]:
         # print(df1.head())
 
         # load accepted data
-        xls = pd.ExcelFile('data/(密件)智慧計算學門統計1130130.xlsx')
-        df2 = pd.read_excel(xls, y+'總計畫清單')
+        xls2 = pd.ExcelFile('data/(密件)智慧計算學門統計1130130.xlsx')
+        df2 = pd.read_excel(xls2, y+'總計畫清單')
         pass_proj_name_list = df2['計畫中文名稱'].to_list()
 
         pass_list = []
