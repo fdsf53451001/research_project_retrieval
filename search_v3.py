@@ -6,13 +6,13 @@ from openpyxl.worksheet.datavalidation import DataValidation
 from utils.cal_embedding_bge_zh import get_embeddings_zh
 from utils.load_former_manager import get_former_manager
 
-vectorstore = Chroma("chroma_project_v2",persist_directory='chroma_project_v2',embedding_function=get_embeddings_zh())
-output_excel = 'data/推薦表統合2nd_分析_v3.xlsx'
+vectorstore = Chroma("chroma_project_v3",persist_directory='chroma_project_v3',embedding_function=get_embeddings_zh())
+output_excel = 'data/research_proj/推薦表統合2nd_分析.xlsx'
 
-xls = pd.ExcelFile('data/推薦表統合2nd.xlsx')
-former_manager = get_former_manager()
+xls = pd.ExcelFile('data/research_proj/推薦表統合2nd.xlsx')
+former_manager = get_former_manager(file_path='data/research_proj/前任委員名單.txt')
 
-tabs = ['31DE41','E4102','E4103','E4103-2','E4104','E4105','E4105-2','E4105-3','E4106','E4108-1','E4108-2','E4110','E41']
+tabs = ['31DE41']
 RECOMMAND_AMOUNT = 10
 SELECT_AMOUNT = 3
 SELECT_BOX_SYMBOL = ['Y','Z','AA']

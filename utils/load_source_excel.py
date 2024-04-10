@@ -2,6 +2,7 @@ import pandas as pd
 from typing import List
 
 def get_proj_df() -> List[pd.DataFrame]:
+    # 研究計畫
     xls = pd.ExcelFile('data/(勿對外公開資料或流傳)108-112年智慧計算學門大批專題計畫申請案件(含中英文摘要及關鍵字)1130215.xlsx')
     year = ['108', '109', '110', '111', '112']
     df_list = {}
@@ -29,4 +30,16 @@ def get_proj_df() -> List[pd.DataFrame]:
     # print(df_list['108']['通過'].value_counts())
     return df_list
 
-print(len(get_proj_df()))
+def get_industry_coop_proj():
+    # 產學計劃
+    xls = pd.ExcelFile('data/industry_coop/108-112產學計畫E41申請名冊.xlsx')
+    year = ['專題計畫綜合查詢']
+    df_list = {}
+    for y in year:
+        # load all data
+        df1 = pd.read_excel(xls, y)
+        df_list[y] = df1
+
+    return df_list
+
+print(len(get_industry_coop_proj()))
